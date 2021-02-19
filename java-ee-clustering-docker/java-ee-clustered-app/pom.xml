@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>it.andreascanzani.example.javaee.clustering</groupId>
+	<artifactId>java-ee-clustered-app</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>module-ejb</module>
+		<module>module-web</module>
+		<module>module-ear</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<javaee.version>8.0</javaee.version>
+		<javaee-ejb.version>3.1</javaee-ejb.version>
+		<app.name>JavaEEClusterApp</app.name>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>it.andreascanzani.example.javaee.clustering</groupId>
+				<artifactId>module-ejb</artifactId>
+				<version>0.0.1</version>
+				<type>ejb</type>
+			</dependency>
+
+			<dependency>
+				<groupId>it.andreascanzani.example.javaee.clustering</groupId>
+				<artifactId>module-web</artifactId>
+				<version>0.0.1</version>
+				<type>war</type>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${javaee.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<version>2.5.1</version>
+					<configuration>
+						<ejbVersion>${javaee-ejb.version}</ejbVersion>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>2.10.1</version>
+					<configuration>
+						<version>7</version>
+						<modules>
+							<ejbModule>
+								<groupId>it.andreascanzani.example.javaee.clustering</groupId>
+								<artifactId>module-ejb</artifactId>
+							</ejbModule>
+							<webModule>
+								<groupId>it.andreascanzani.example.javaee.clustering</groupId>
+								<artifactId>module-web</artifactId>
+								<contextRoot>/${app.name}</contextRoot>
+							</webModule>
+						</modules>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
