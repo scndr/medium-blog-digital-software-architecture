@@ -1,0 +1,20 @@
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://andreascanzani.it/SumService/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="GetSumRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="addendOne" minOccurs="1" maxOccurs="1" nillable="false" type="xsd:int"/>
+				<xsd:element name="addendTwo" minOccurs="1" maxOccurs="1" nillable="false" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetSumResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="result" minOccurs="1" maxOccurs="1" nillable="false" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
