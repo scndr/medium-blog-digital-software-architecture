@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SumService" targetNamespace="http://andreascanzani.it/SumService/wsdl" xmlns:ns1="http://andreascanzani.it/SumService/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://andreascanzani.it/SumService/wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="SumServiceSOAPBinding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://andreascanzani.it/SumService/wsdl">
+<xsd:import namespace="http://andreascanzani.it/SumService/schema" schemaLocation="SumService.xsd"/>
+</xsd:schema>
+	</wsdl:types>
+    
+	<wsdl:message name="GetSumRequest">
+		<wsdl:part element="ns1:GetSumRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetSumResponse">
+		<wsdl:part element="ns1:GetSumResponse" name="parameters"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="SumServicePort">
+		<wsdl:operation name="GetSum">
+			<wsdl:input message="tns:GetSumRequest"/>
+			<wsdl:output message="tns:GetSumResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="SumServiceSOAPBinding" type="tns:SumServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetSum">
+			<soap:operation soapAction="http://andreascanzani.it/SumService/GetSum"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="SumService">
+		<wsdl:port binding="tns:SumServiceSOAPBinding" name="SumServiceSOAPBinding">
+			<soap:address location="http://localhost:8080/services/soap/SumService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

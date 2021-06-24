@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="SecurityProfiles" policyName="WSS_SecurityProfile" policyTemplate="SecurityProfiles">
+    <authentication>Local</authentication>
+    <authenticationConfig>myCredential</authenticationConfig>
+    <mapping>NONE</mapping>
+    <mappingConfig></mappingConfig>
+    <authorization>NONE</authorization>
+    <authorizationConfig></authorizationConfig>
+    <propagation>false</propagation>
+    <idToPropagateToTransport>Message ID</idToPropagateToTransport>
+    <transportPropagationConfig></transportPropagationConfig>
+    <keyStore>Reserved for future use</keyStore>
+    <trustStore>Reserved for future use</trustStore>
+    <passwordValue>PLAIN</passwordValue>
+    <rejectBlankpassword>true</rejectBlankpassword>
+  </policy>
+</policies>

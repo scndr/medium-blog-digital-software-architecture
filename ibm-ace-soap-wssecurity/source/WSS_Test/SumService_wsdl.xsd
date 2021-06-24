@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://andreascanzani.it/SumService/wsdl" xmlns:ns1="http://andreascanzani.it/SumService/schema" xmlns:tns="http://andreascanzani.it/SumService/wsdl">
+  <xsd:import namespace="http://andreascanzani.it/SumService/schema" schemaLocation="SumService.xsd"/>
+
+<!-- BEGIN Global group petaining to all wsdl:message definitions -->
+<!-- END Global group -->
+
+
+<!-- BEGIN Message Definitions for the wsdl:operations  -->
+<!-- END Message Definitions -->
+
+
+</xsd:schema>

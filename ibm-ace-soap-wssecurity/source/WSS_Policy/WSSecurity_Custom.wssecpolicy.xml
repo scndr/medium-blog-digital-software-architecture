@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy:Policy xmlns:_0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:_200512="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:policy="http://schemas.xmlsoap.org/ws/2004/09/policy">
+  <_200512:SupportingTokens>
+    <policy:Policy _0:Id="request:uname_token">
+      <_200512:UsernameToken _200512:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512/IncludeToken/AlwaysToRecipient">
+        <policy:Policy>
+          <_200512:WssUsernameToken10/>
+        </policy:Policy>
+      </_200512:UsernameToken>
+    </policy:Policy>
+  </_200512:SupportingTokens>
+</policy:Policy>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/SumService.xsd"/>
+    <output path="/SumService.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://andreascanzani.it/SumService/schema"/>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="Mapping">
+        <input namespace="http://andreascanzani.it/SumService/schema" path="mb:msg(GetSumRequest,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_GetSumRequest"/>
+        <output namespace="http://andreascanzani.it/SumService/schema" path="mb:msg(GetSumResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_GetSumResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_GetSumRequest/Properties"/>
+            <output path="$ComIbmMessageAssembly_GetSumResponse/Properties"/>
+        </move>
+        <function ref="fn:sum">
+            <input path="$ComIbmMessageAssembly_GetSumRequest/GetSumRequest/addendOne" var="addendOne"/>
+            <input path="$ComIbmMessageAssembly_GetSumRequest/GetSumRequest/addendTwo" var="addendTwo"/>
+            <output path="$ComIbmMessageAssembly_GetSumResponse/GetSumResponse/result"/>
+            <param name="arg" value="($addendOne,$addendTwo)"/>
+        </function>
+    </mappingDeclaration>
+</mappingRoot>

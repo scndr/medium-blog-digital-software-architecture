@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?ibm-bip policySet="WSSecurity_Custom"?>
+<securitybinding:securityBindings xmlns:securitybinding="http://www.ibm.com/xmlns/prod/websphere/200710/ws-securitybinding">
+  <securitybinding:securityBinding name="application">
+    <securitybinding:securityInboundBindingConfig>
+      <securitybinding:tokenConsumer classname="com.ibm.ws.wssecurity.wssapi.token.impl.CommonTokenConsumer" name="con_uname_token">
+        <securitybinding:valueType localName="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#UsernameToken"/>
+        <securitybinding:securityTokenReference reference="request:uname_token"/>
+        <securitybinding:jAASConfig configName="system.wss.consume.unt"/>
+        <securitybinding:callbackHandler classname="com.ibm.websphere.wssecurity.callbackhandler.UNTConsumeCallbackHandler"/>
+      </securitybinding:tokenConsumer>
+    </securitybinding:securityInboundBindingConfig>
+  </securitybinding:securityBinding>
+</securitybinding:securityBindings>

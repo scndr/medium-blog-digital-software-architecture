@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://andreascanzani.it/SumService/schema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+	<xsd:element ibmSchExtn:docRoot="true" name="GetSumRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="addendOne" nillable="false" type="xsd:double"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="addendTwo" nillable="false" type="xsd:double"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element ibmSchExtn:docRoot="true" name="GetSumResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="result" nillable="false" type="xsd:double"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
